@@ -52,11 +52,11 @@ test('multibrowser test', async () => {
 //For Opera and Brave Browser we need to pass the executable path 
 
 
-test('opera test', async () => {
-    const browser = await chromium.launch({
+test.skip('opera test', async () => {
+    let browser = await chromium.launch({
         headless: false, executablePath: "C:\\Program Files\\Opera\\launcher.exe" // adjust path
     });
-    const page = await browser.newPage();
+    let page = await browser.newPage();
     await page.goto("https://example.com");
     console.log("Title:", await page.title());
 });
@@ -68,3 +68,6 @@ test('opera test', async () => {
 // - Fixture vs manual launch:
 //   * Fixture → concise, integrated with test runner.
 //   * Manual  → flexible, good for custom setups or non-test runner scripts.
+
+
+

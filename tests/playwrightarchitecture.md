@@ -122,3 +122,9 @@ Please refer to the attached png file on architecture diagram
 | **Channel option** | Supported (`chrome`, `msedge`) | Not supported                      | Not supported                    |
 | **Automation depth** | Full CDP features           | Playwright‑specific hooks          | Playwright‑specific hooks        |
 | **Installation**   | `npx playwright install`      | Ships patched Nightly              | Ships patched WebKit             |
+
+
+
+
+Note: Please refer to the https://www.shapemyinterview.com/resources/playwright-e2e-architecture-blueprint
+

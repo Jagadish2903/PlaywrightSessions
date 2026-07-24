@@ -54,13 +54,9 @@ async function launchBrowser(browserName: BrowserName) {
 }
 
 
-
-let browser: Browser = await launchBrowser("firefox");
-let page: Page = await browser.newPage();
-await page.goto("https://testautomationpractice.blogspot.com/");
-let title = await page.title();
-console.log("Title of the page is ", title);
-await browser.close();
+export default {
+    launchBrowser
+}
 
 
-export{}
+

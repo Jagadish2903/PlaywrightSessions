@@ -30,6 +30,7 @@ export default defineConfig({
   use: {
     headless: false,
     trace: 'on',
+
   },
 
   /* Configure projects for major browsers */

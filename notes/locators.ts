@@ -118,4 +118,8 @@
 // ───────────────────────────────────────────────
 
 
-//we can test getbyrole using locatorlabs 
+//we can test getbyrole using locatorlabs  as well through browser itself
+
+
+//getByRole : 
+

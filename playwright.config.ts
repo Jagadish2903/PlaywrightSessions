@@ -32,6 +32,7 @@ export default defineConfig({
     trace: 'on',
     screenshot: "only-on-failure",
     //video:"on"
+    testIdAttribute: "data-test-id"
 
   },
 

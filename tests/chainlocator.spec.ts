@@ -1,4 +1,4 @@
-import test from "@playwright/test";
+import test, { Locator } from "@playwright/test";
 
 test("Chain Locator Test", async ({ page }) => {
     await page.goto("https://naveenautomationlabs.com/opencart/index.php?route=account/register");
@@ -67,3 +67,69 @@ test("WebTable Handling Test for Crickbuzz", async ({ page }) => {
 // - This pattern is reusable for any scorecard table:
 //   • Parent container → row locator → filter by player → column locator.
 // - Cleaner and more readable than long XPath expressions.
+
+
+
+
+//Fetch Data from the table 
+test("Fetch Data from the Table Test", async ({ page }) => {
+    await page.goto("https://www.w3schools.com/html/html_tables.asp");
+    let tablecontent: string[] = await page.locator('table').first().locator('tr').allInnerTexts();
+    for (let ele of tablecontent) {
+        console.log(ele);
+        console.log("==============================");
+    }
+    await page.pause();
+
+})
+
+
+//select all checkboxes in the webtable 
+
+test("clicking Checkboxes one by one Test", async ({ page }) => {
+    await page.goto("https://naveenautomationlabs.com/opencart/ui/webtable.html");
+
+    let checkboxes = await page.locator('table#resultTable tbody').getByRole('checkbox').all();
+    for (let ele of checkboxes) {
+        ele.click();
+        await page.waitForTimeout(1000);
+    }
+})
+
+//using for loop
+test("clicking Checkboxes one by one Test using for loop ", async ({ page }) => {
+    await page.goto("https://naveenautomationlabs.com/opencart/ui/webtable.html");
+
+    let checkboxes = await page.locator('table#resultTable tbody').getByRole('checkbox').all();
+    for (let i = 0; i < checkboxes.length; i++) {
+        checkboxes[i].click();
+        await page.waitForTimeout(1000);
+    }
+})
+
+
+
+//Gettign Wicket Taker Name 
+test("Getting WicketTaker Name from the CrickInfo Test", async ({ page }) => {
+    await page.goto("https://www.cricinfo.com/series/the-hundred-men-s-competition-2026-1521176/london-spirit-men-vs-mi-london-men-23rd-match-1521253/full-scorecard");
+    let playerName = "Jonny Bairstow"
+    let wicketTaker: string = await page.locator('table.ci-scorecard-table').first().locator('tbody tr').filter({ hasText: `${playerName}` }).locator('td').nth(1).locator('span span').innerText();
+    console.log(wicketTaker);
+    await page.pause();
+})
+
+
+
+test("Getting complete details of the batsman from the CrickInfo Test", async ({ page }) => {
+    await page.goto("https://www.cricinfo.com/series/the-hundred-men-s-competition-2026-1521176/london-spirit-men-vs-mi-london-men-23rd-match-1521253/full-scorecard");
+    let playerName = "Jonny Bairstow"
+    let scoreDetails = await page.locator('table.ci-scorecard-table').first().locator('tbody tr').filter({ hasText: `David Willey` }).first().locator('td').all();
+    for (let ele of scoreDetails) {
+        //to print 
+        // console.log(await ele.innerText());
+        //to print in single line 
+        process.stdout.write(await ele.innerText() + " ");
+    }
+    await page.pause();
+
+})

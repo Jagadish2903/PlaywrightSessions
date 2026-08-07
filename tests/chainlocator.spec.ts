@@ -126,9 +126,9 @@ test("Getting complete details of the batsman from the CrickInfo Test", async ({
     let scoreDetails = await page.locator('table.ci-scorecard-table').first().locator('tbody tr').filter({ hasText: `David Willey` }).first().locator('td').all();
     for (let ele of scoreDetails) {
         //to print 
-        // console.log(await ele.innerText());
+        console.log(await ele.innerText());
         //to print in single line 
-        process.stdout.write(await ele.innerText() + " ");
+        // process.stdout.write(await ele.innerText() + " ");
     }
     await page.pause();
 

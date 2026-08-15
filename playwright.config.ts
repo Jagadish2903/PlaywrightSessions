@@ -26,13 +26,16 @@ export default defineConfig({
     ['html'],
     ['list']
   ],
+  timeout: 60000,
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     headless: false,
     trace: 'on',
     screenshot: "only-on-failure",
     //video:"on"
-    testIdAttribute: "data-test-id"
+    testIdAttribute: "data-test-id",
+    actionTimeout: 15000,      // optional: max time per action
+    navigationTimeout: 30000,  // optional: max time per navigation
 
   },
 

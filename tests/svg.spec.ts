@@ -58,6 +58,10 @@ test('svg handle test', async ({ page }) => {
 
 test('Gold Graph Test', async ({ page }) => {
     await page.goto("https://goldprice.org/");
-    
+
 
 })
+
+
+
+
